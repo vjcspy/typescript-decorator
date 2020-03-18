@@ -55,7 +55,7 @@ function expression(target) {
 
 Để customize cách mà 1 decorator được apply vào target của nó, **hoặc truyền params cho decorator**, ta có thể sử dụng  `decorator factory`  - thực chất cũng lại là 1 function, trả về 1 expression mà sẽ được decorator gọi tới ở run-time.
 
-```none
+```javascript
 function customDecorator(value: integer) {   // => decorator factory
   return function (target): void {           // => decorator
      // do something with decorated target and input value
@@ -76,7 +76,7 @@ function customDecorator(value: integer) {   // => decorator factory
 
 Một  ***Class decorator***  được định nghĩa ngay phía trước định nghĩa lớp đó.
 
-```none
+```javascript
 @classDecorator
 @sealed
 export class Greeter {  
@@ -151,7 +151,7 @@ function enumerable(value: boolean) {
 
 Tương tự với  `method decorator`,  `accessor decorator`  dùng để decorate cho accessor của 1 property nào đó.
 
-```none
+```javascript
 class Demo {
   private _name: string;
 
@@ -165,7 +165,7 @@ class Demo {
 
 _Chú ý_: Với accessor decorator, ta chỉ định nghĩa decorate với accessor nào (get hoặc set) được viết trước tiên.
 
-```none
+```javascript
 @modify
 get name(): string {
 }
@@ -179,7 +179,7 @@ set name(input: string): void {
 
 Khác với  `method decorator`  và  `accessor decorator`,  `property decorator`  sẽ chỉ có 2 params đầu vào :  `Property Descriptor`  không được truyền vào như 1 argument của  `property decorator`
 
-```none
+```javascript
 import "reflect-metadata";  
   
 export class ClassWithPropertyDecorator {  
